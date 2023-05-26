@@ -1,0 +1,9 @@
+SELECT student.student_name, student.father_name, student.roll_number, status_master.status, branch_master.branch_name, program_master.program_name,
+ college.college_name,university.university_name FROM student INNER JOIN status_master ON student.status_id =
+status_master.status_id INNER JOIN college_branch ON student.college_branch_id =
+college_branch.college_branch_id  INNER JOIN branch_master ON college_branch.branch_id =
+branch_master.branch_id  INNER JOIN college_program ON college_branch.college_program_id =
+college_program.college_program_id  INNER JOIN program_master ON college_program.program_id =
+program_master.program_id INNER JOIN college ON college_program.college_id =
+college.college_id INNER JOIN university ON college.university_id =
+university.university_id where student.student_id = ?
